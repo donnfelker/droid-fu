@@ -55,7 +55,30 @@ Droid-Fu must be compiled against the Android 1.5 R3 JAR. Since the build is dri
 
     $ cd ~/projects/maven-android-sdk-deployer/platforms/android-3
 
-Then install the Android JAR:
+As of 5/24/2010, if you cloned the maven-android-sdk-deployer, you will see folders that look like this: 
+	
+	android-3
+	android-4
+	android-7
+	android-8
+	...
+
+I'm running Windows 7 - 64 Bit, and my Android SDK platforms directories directories look like this: 
+
+	android-1.1
+	android-1.5
+	...
+	android-2.1
+
+The pom.xml file in the `android-3` directory in the `maven-android-sdk-deployer` has a setting which it uses as the artifact. This needs to match the SDK. To get this to work, I had to go into the `android-3` directory and change: 
+	
+	<artifactId>android-3</artifactId>
+
+to 
+
+	<artifactId>android-1.5</artifactId>
+	
+Then I could install. Now install the Android JAR with:
 
     $ mvn install -Dandroid.sdk.path=/path/to/your/android/sdk/root
 
