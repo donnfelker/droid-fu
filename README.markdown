@@ -53,7 +53,7 @@ Alternatively, you can simply download the archived source codes from the master
 
 Droid-Fu must be compiled against the Android 1.5 R3 JAR. Since the build is driven by Maven, we must provide the Android JAR to Maven during the compile stage, otherwise the build will fail. Change to the folder to which you downloaded the maven-android SDK deployer source code, and into the platforms/android-1.5 sub-directory, e.g.:
 
-    $ cd ~/projects/maven-android-sdk-deployer/platforms/android-1.5
+    $ cd ~/projects/maven-android-sdk-deployer/platforms/android-3
 
 Then install the Android JAR:
 
