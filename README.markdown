@@ -55,7 +55,10 @@ Droid-Fu must be compiled against the Android 1.5 R3 JAR. Since the build is dri
 
     $ cd ~/projects/maven-android-sdk-deployer/platforms/android-3
 
-As of 5/24/2010, if you cloned the maven-android-sdk-deployer, you will see folders that look like this: 
+
+##### _Legacy Android SDK Platform Folder Issues_
+	
+When you cloned the `maven-android-sdk-deployer`, you will see folders that look like this: 
 	
 	android-3
 	android-4
@@ -63,22 +66,34 @@ As of 5/24/2010, if you cloned the maven-android-sdk-deployer, you will see fold
 	android-8
 	...
 
-I'm running Windows 7 - 64 Bit, and my Android SDK platforms directories directories look like this: 
+If you have installed SDK's previous to a SDK tool update (Spring 2010), your Android SDK platform folder structure may look like this: 
 
 	android-1.1
 	android-1.5
 	...
 	android-2.1
 
-The pom.xml file in the `android-3` directory in the `maven-android-sdk-deployer` has a setting which it uses as the artifact. This needs to match the SDK. To get this to work, I had to go into the `android-3` directory and change: 
+This does not match what `maven-android-sdk-deployer` is expecting. The pom.xml file in the `android-3` directory in the `maven-android-sdk-deployer` has a setting which it uses as the artifact id. This artifact id is set to `android-3` . This needs to match the Android SDK platform folder. To get this to work, you have two options: 
+
+_Option 1:_ 
+
+Change the artifactId in the `maven-android-sdk-deployer` pom.xml file. 
+
+In the `maven-android-sdk-deployer` directory, go into the `android-3`, open the pom.xml file and change: 
 	
 	<artifactId>android-3</artifactId>
 
 to 
 
 	<artifactId>android-1.5</artifactId>
-	
-Then I could install. Now install the Android JAR with:
+
+_Option 2:_ 
+
+Go into your Android SDK, delete all the platforms and re-install them using hte SDK Setup tool	(SDK Setup.exe). This will recreate the platforms with the correct folder structure / naming. 
+
+##### _End Legacy Comments_
+
+Now install the Android JAR with:
 
     $ mvn install -Dandroid.sdk.path=/path/to/your/android/sdk/root
 
@@ -89,6 +104,8 @@ Example: I have installed my Android SDK into `C:\SDK\ ` . My `mvn install ...` 
 	mvn install -Dandroid.sdk.path=C:\SDK\android-sdk-windows\
 
 #### Step 3: Build and install the Droid-Fu JAR
+
+_Note: You will need the Java SDK installed, not just the JRE_
 
 If you just want to build the JAR, and copy it around manually, change to the folder where you downloaded/cloned the Droid-Fu sources, and run:
 
