@@ -84,7 +84,7 @@ Then I could install. Now install the Android JAR with:
 
 If the build fails, you probably provided a wrong SDK root. An `ls` in the `android.sdk.path` should list (among other files) a `platforms` and `add-ons` folder.
 
-Example: I have installed my Android SDK into `C:\SDK\` . My `mvn install ...` looks like this: 
+Example: I have installed my Android SDK into `C:\SDK\ ` . My `mvn install ...` looks like this: 
 
 	mvn install -Dandroid.sdk.path=C:\SDK\android-sdk-windows\
 
