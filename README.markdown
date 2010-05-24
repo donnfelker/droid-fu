@@ -84,6 +84,10 @@ Then I could install. Now install the Android JAR with:
 
 If the build fails, you probably provided a wrong SDK root. An `ls` in the `android.sdk.path` should list (among other files) a `platforms` and `add-ons` folder.
 
+Example: I have installed my Android SDK into `C:\SDK\`. My `mvn install ...` looks like this: 
+
+	mvn install -Dandroid.sdk.path=C:\SDK\android-sdk-windows\
+
 #### Step 3: Build and install the Droid-Fu JAR
 
 If you just want to build the JAR, and copy it around manually, change to the folder where you downloaded/cloned the Droid-Fu sources, and run:
